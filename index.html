@@ -1746,7 +1746,7 @@
                     <p>5-minute assessment that analyzes your online presence and shows exactly what's working and what's not.</p>
                     <div class="mg-16px"></div>
                     <form class="email-form">
-                        <input type="text" name="website" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
+                        <input type="text" name="department" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
                         <input type="email" name="email" placeholder="Enter your email address" required>
                         <button type="submit" class="btn-primary">Get My Free Report</button>
                     </form>
@@ -1767,7 +1767,7 @@
             <p>Join thousands of small businesses who stopped struggling with marketing and started growing.</p>
 
             <form id="demo-form" class="cta-demo-form">
-                <input type="text" name="website" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
+                <input type="text" name="department" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
                 <div class="form-grid">
                     <input type="text" name="name" placeholder="Your name" required>
                     <input type="email" name="email" placeholder="Work email" required>
@@ -1959,7 +1959,7 @@
                 const data = Object.fromEntries(formData);
 
                 // Honeypot check - if filled, it's a bot
-                if (data.website) {
+                if (data.department) {
                     console.log('Bot detected');
                     return;
                 }
@@ -2017,7 +2017,7 @@
                 const data = Object.fromEntries(formData);
 
                 // Honeypot check
-                if (data.website) {
+                if (data.department) {
                     console.log('Bot detected');
                     return;
                 }
