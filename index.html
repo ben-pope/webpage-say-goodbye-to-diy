@@ -1949,6 +1949,12 @@
             };
         }
 
+        // Get HubSpot user token from cookie
+        function getHutk() {
+            const match = document.cookie.match(/hubspotutk=([^;]+)/);
+            return match ? match[1] : '';
+        }
+
         // Demo form handler
         const demoForm = document.getElementById('demo-form');
         if (demoForm) {
@@ -1986,6 +1992,7 @@
                             email: data.email,
                             company: data.company,
                             phone: data.phone,
+                            hutk: getHutk(),
                             ...getPageInfo(),
                             ...getUrlParams()
                         })
@@ -2035,6 +2042,7 @@
                         body: JSON.stringify({
                             form: 'lead_magnet',
                             email: data.email,
+                            hutk: getHutk(),
                             ...getPageInfo(),
                             ...getUrlParams()
                         })
