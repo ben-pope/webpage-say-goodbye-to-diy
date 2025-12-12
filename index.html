@@ -1769,9 +1769,9 @@
             <form id="demo-form" class="cta-demo-form">
                 <input type="text" name="website" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
                 <div class="form-grid">
-                    <input type="text" name="first_name" placeholder="First name" required>
-                    <input type="text" name="last_name" placeholder="Last name" required>
+                    <input type="text" name="name" placeholder="Your name" required>
                     <input type="email" name="email" placeholder="Work email" required>
+                    <input type="text" name="company" placeholder="Company name" required>
                     <input type="tel" name="phone" placeholder="Phone number">
                 </div>
                 <button type="submit" class="btn-primary">Book My Demo</button>
@@ -1969,6 +1969,11 @@
                 btn.textContent = 'Sending...';
                 btn.disabled = true;
 
+                // Split name into first and last
+                const nameParts = data.name.trim().split(/\s+/);
+                const firstName = nameParts[0] || '';
+                const lastName = nameParts.slice(1).join(' ') || '';
+
                 try {
                     await fetch(ZAPIER_WEBHOOK, {
                         method: 'POST',
@@ -1976,9 +1981,10 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             form: 'demo',
-                            first_name: data.first_name,
-                            last_name: data.last_name,
+                            first_name: firstName,
+                            last_name: lastName,
                             email: data.email,
+                            company: data.company,
                             phone: data.phone,
                             ...getPageInfo(),
                             ...getUrlParams()
