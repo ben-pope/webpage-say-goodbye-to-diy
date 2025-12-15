@@ -126,6 +126,26 @@
             color: var(--lev-red);
         }
 
+        /* ========== UNDERLINED TEXT ========== */
+        .underlined-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .underlined-text::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -10px;
+            height: 20px;
+            background-image: url('icons/underlines/underline-1.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: center;
+            filter: brightness(0) saturate(100%) invert(79%) sepia(82%) saturate(1392%) hue-rotate(359deg) brightness(103%) contrast(103%);
+        }
+
         /* ========== LAYOUT ========== */
         .container {
             max-width: 940px;
@@ -359,7 +379,8 @@
         }
 
         .hero-headline {
-            font-size: clamp(40px, 6vw, 80px);
+            font-size: clamp(50px, 8vw, 100px);
+            line-height: 1.3;
             margin-bottom: 24px;
         }
 
@@ -592,14 +613,14 @@
         .specialists-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            max-width: 320px;
+            gap: 24px;
+            max-width: 420px;
         }
 
         .specialist-headshot {
-            width: 140px;
-            height: 140px;
-            border-radius: 1.75rem;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -935,7 +956,7 @@
 
         /* ========== LEAD MAGNET ========== */
         .lead-magnet-card {
-            max-width: 900px;
+            max-width: 700px;
             margin: 0 auto;
             padding: 48px;
         }
@@ -947,19 +968,12 @@
             align-items: stretch;
         }
 
-        .email-form > input[type="email"],
-        .email-form > .company-field-wrapper {
-            flex: 1 1 200px;
-            min-width: 150px;
-            max-width: 280px;
-        }
-
         .email-form input {
             padding: 16px 20px;
             border: 2px solid #e2e8f0;
             border-radius: 8px;
             font-family: 'Lexend', sans-serif;
-            font-size: 15px;
+            font-size: 16px;
             outline: none;
             transition: border-color 0.2s;
             box-sizing: border-box;
@@ -974,32 +988,13 @@
             flex-shrink: 0;
         }
 
-        /* Responsive: stack on mobile */
-        @media (max-width: 767px) {
-            .email-form {
-                flex-wrap: wrap;
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .email-form > input[type="email"],
-            .email-form > .company-field-wrapper {
-                flex: none;
-                min-width: 100%;
-                max-width: 100%;
-                width: 100%;
-            }
-            .email-form input {
-                height: auto;
-            }
-            .email-form button {
-                width: 100%;
-            }
-        }
-
         /* Company Autocomplete Styles */
         .company-field-wrapper {
             position: relative;
             display: flex;
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
         }
 
         .company-field-wrapper input {
@@ -1049,13 +1044,7 @@
             color: white;
         }
 
-        .autocomplete-loading {
-            padding: 16px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-
+        .autocomplete-loading,
         .autocomplete-no-results {
             padding: 16px;
             text-align: center;
@@ -1066,6 +1055,24 @@
         .company-field-wrapper input.has-selection {
             border-color: var(--lev-green);
             background-color: #f0fdf4;
+        }
+
+        /* Responsive: stack on mobile */
+        @media (max-width: 767px) {
+            .email-form {
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+            .company-field-wrapper {
+                min-width: 100%;
+                max-width: 100%;
+            }
+            .email-form input {
+                height: auto;
+            }
+            .email-form button {
+                width: 100%;
+            }
         }
 
         /* ========== CTA SECTION ========== */
@@ -1201,14 +1208,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 32px;
-            flex-wrap: wrap;
+            gap: 36px;
+            flex-wrap: nowrap;
             margin-bottom: 24px;
         }
 
         .award-img {
-            height: 80px;
-            width: auto;
+            height: 100px;
+            width: 120px;
+            object-fit: contain;
         }
 
         .award-badge {
@@ -1434,7 +1442,7 @@
             <div class="hero-logo">
                 <img src="images/levitate-logo-white.png" alt="Levitate">
             </div>
-            <h1 class="hero-headline">Say Goodbye to <span class="emphasis-text yellow">DIY Marketing</span></h1>
+            <h1 class="hero-headline">Say <span class="underlined-text">Goodbye</span> to <span class="emphasis-text yellow">DIY Marketing</span></h1>
             <div class="white-text">
                 <p class="big-paragraph">Levitate is a dedicated marketing partner who knows your business<br><em>without</em> the cost of a full-time hire.</p>
             </div>
@@ -1499,7 +1507,7 @@
             <!-- Video Section -->
             <div class="hero-video-wrapper">
                 <div class="hero-video-container double-border light-blue">
-                    <video class="hero-video" controls playsinline>
+                    <video class="hero-video" autoplay muted loop playsinline controls>
                         <source src="levitate-video.mp4" type="video/quicktime">
                         <source src="levitate-video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
@@ -1559,15 +1567,15 @@
     <section class="section" style="background-color: #f8fafc;">
         <div class="container">
             <div class="center">
-                <h2>Marketing done <em>with</em> you, by people who <span class="emphasis-text green">actually care</span></h2>
+                <h2>Marketing that's easy to manage, <span class="emphasis-text green">all in one place</span></h2>
                 <p class="big-paragraph">Everything you need for scalable, authentic communication that drives your business.</p>
             </div>
             <div class="mg-48px"></div>
             <div class="pillars-grid">
                 <div class="pillar-card double-border light-blue background-white">
                     <div class="pillar-icon" style="background: linear-gradient(135deg, var(--lev-light-blue), var(--lev-blue));"><img src="icons/icon-globe-white.png" alt="Website icon" class="pillar-icon-img"></div>
-                    <h4>Dated site = lost clients</h4>
-                    <p>72% of people Google you first. We make sure you win the click with a modern, mobile-friendly site.</p>
+                    <h4>Dated website = lost clients</h4>
+                    <p>72% of people Google you first. We make sure you win the click with a modern, mobile-friendly website.</p>
                 </div>
                 <div class="pillar-card double-border light-green background-white">
                     <div class="pillar-icon" style="background: linear-gradient(135deg, var(--lev-light-green), var(--lev-med-green));"><img src="icons/icon-megaphone-white.png" alt="Digital ads icon" class="pillar-icon-img"></div>
@@ -1587,7 +1595,7 @@
             </div>
             <div class="mg-48px"></div>
             <div class="center">
-                <p class="emphasis-text" style="font-size: 24px; color: var(--lev-blue);">"Not another tool to learn. Not another agency to manage. Just results."</p>
+                <p class="emphasis-text" style="font-size: 18px; color: var(--lev-blue);">Not another tool to teach yourself. Not another agency to manage. Just results.</p>
             </div>
         </div>
     </section>
@@ -1596,7 +1604,7 @@
     <section class="section">
         <div class="container">
             <div class="center">
-                <h2><span class="emphasis-text green">Authenticity</span> is the air we breathe</h2>
+                <h2>Marketing done with you by people who <span class="emphasis-text green">actually care</span></h2>
             </div>
             <div class="two-column-flex-block">
                 <div class="flex-column">
@@ -1606,32 +1614,10 @@
                 <div class="flex-column">
                     <div class="flex-column-visuals">
                         <div class="specialists-grid">
-                            <div class="specialist-headshot double-border blue"><img src="icons/specialist-1.png" alt="Success Specialist" class="specialist-photo"></div>
+                            <div class="specialist-headshot double-border blue"><img src="icons/specialist-1.png" alt="Success Specialist" class="specialist-photo" style="transform: scale(1.15);"></div>
                             <div class="specialist-headshot double-border light-green"><img src="icons/specialist-2.png" alt="Success Specialist" class="specialist-photo"></div>
-                            <div class="specialist-headshot double-border purple"><img src="icons/specialist-3.png" alt="Success Specialist" class="specialist-photo"></div>
-                            <div class="specialist-headshot double-border salmon"><img src="icons/specialist-4.png" alt="Success Specialist" class="specialist-photo"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="two-column-flex-block flipped">
-                <div class="flex-column">
-                    <h3>Real Results</h3>
-                    <p>We believe in data-driven insights. Our data proves that Levitate's people, strategies, and features deliver measurable improvements for our customers, backed by hundreds of 5-star reviews.</p>
-                </div>
-                <div class="flex-column">
-                    <div class="stats-row">
-                        <div class="stat">
-                            <div class="stat-number">47%</div>
-                            <div class="stat-label">More policy renewals</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">34%</div>
-                            <div class="stat-label">More referrals</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-number">28%</div>
-                            <div class="stat-label">Higher retention</div>
+                            <div class="specialist-headshot double-border purple"><img src="icons/specialist-4.png" alt="Success Specialist" class="specialist-photo"></div>
+                            <div class="specialist-headshot double-border salmon"><img src="icons/specialist-6.png" alt="Success Specialist" class="specialist-photo"></div>
                         </div>
                     </div>
                 </div>
@@ -1640,7 +1626,7 @@
     </section>
 
     <!-- ========== TESTIMONIALS SECTION ========== -->
-    <section id="testimonials" class="section">
+    <section id="testimonials" class="section" style="padding-top: 32px;">
         <div class="container">
             <div class="center">
                 <h2>Our customers <span class="emphasis-text red">love</span> us</h2>
@@ -1885,7 +1871,6 @@
                     <div class="mg-16px"></div>
                     <form class="email-form" id="health-check-form">
                         <input type="text" name="department" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
-                        <input type="email" name="email" placeholder="Email address" required>
                         <div class="company-field-wrapper">
                             <input type="text"
                                    id="companySearch"
@@ -1923,7 +1908,7 @@
                 </div>
                 <button type="submit" class="btn-primary">Book My Demo</button>
             </form>
-            <p class="social-count">Join 300+ businesses who joined this month</p>
+            <p class="social-count">See why 300+ businesses sign up each month</p>
 
             <div class="cta-testimonial">
                 <div class="cta-stars">★★★★★</div>
@@ -1937,31 +1922,11 @@
                     <img src="images/award-workplace.png" alt="USA Today Top Workplace" class="award-img">
                     <img src="images/award-saas-winner.png" alt="SaaS Awards Winner 2024" class="award-img">
                     <img src="images/award-frontrunners.svg" alt="Software Advice FrontRunners" class="award-img">
-                </div>
-                <div class="awards-group">
                     <img src="images/award-capterra-ease.svg" alt="Capterra Best Ease of Use" class="award-img">
                     <img src="images/award-capterra-shortlist.svg" alt="Capterra Shortlist" class="award-img">
                     <img src="images/award-g2-leader.svg" alt="G2 Momentum Leader" class="award-img">
                     <img src="images/award-users-love-us.svg" alt="Users Love Us" class="award-img">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== INTEGRATIONS SECTION ========== -->
-    <section class="integrations-section">
-        <div class="container center">
-            <h3 class="white-text" style="margin-bottom: 8px;">Integrates with tools you already use</h3>
-            <p class="white-text" style="opacity: 0.8; margin-bottom: 32px;">Connect Levitate to your existing workflow</p>
-            <div class="integrations-grid">
-                <div class="integration-logo-card"><img src="images/logo-salesforce.svg" alt="Salesforce" class="integration-logo"></div>
-                <div class="integration-logo-card"><img src="images/logo-zapier.png" alt="Zapier" class="integration-logo" style="max-width: 140px; max-height: 50px;"></div>
-                <div class="integration-logo-card"><img src="images/logo-gmail.svg" alt="Gmail" class="integration-logo"></div>
-                <div class="integration-logo-card"><img src="images/logo-outlook.svg" alt="Outlook" class="integration-logo"></div>
-                <div class="integration-logo-card"><img src="images/logo-office365.svg" alt="Office 365" class="integration-logo"></div>
-                <div class="integration-logo-card"><img src="images/logo-clio.png" alt="Clio" class="integration-logo"></div>
-                <div class="integration-logo-card"><img src="images/logo-wealthbox.svg" alt="Wealthbox" class="integration-logo"></div>
-                <div class="integration-logo-card"><img src="images/logo-redtail.svg" alt="Redtail" class="integration-logo"></div>
             </div>
         </div>
     </section>
@@ -2187,6 +2152,61 @@
             });
         }
 
+        // Email form handler
+        const emailForm = document.querySelector('.email-form');
+        if (emailForm) {
+            emailForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+
+                // Honeypot check
+                if (data.department) {
+                    console.log('Bot detected');
+                    return;
+                }
+
+                const btn = this.querySelector('button');
+                const originalText = btn.textContent;
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+
+                // Get IP address
+                const ipAddress = await getIpAddress();
+
+                try {
+                    await fetch(ZAPIER_WEBHOOK, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            form: 'lead_magnet',
+                            email: data.email,
+                            hutk: getHutk(),
+                            ip_address: ipAddress,
+                            submitted_at: new Date().toISOString(),
+                            ...getPageInfo(),
+                            ...getUrlParams()
+                        })
+                    });
+
+                    btn.textContent = 'Check Your Email!';
+                    btn.style.background = '#43922f';
+                    this.reset();
+
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 3000);
+                } catch (error) {
+                    btn.textContent = 'Error - Try Again';
+                    btn.disabled = false;
+                }
+            });
+        }
+
         // ========== Company Autocomplete & Health Check Form ==========
         const GETMYSCORE_API = 'https://simple-online-health-form.vercel.app/api/autocomplete-business';
         const GETMYSCORE_REPORT_URL = 'https://www.levitate.ai/getmyscore';
@@ -2340,7 +2360,7 @@
         // Health Check Form handler
         const healthCheckForm = document.getElementById('health-check-form');
         if (healthCheckForm) {
-            healthCheckForm.addEventListener('submit', async function(e) {
+            healthCheckForm.addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 const formData = new FormData(this);
