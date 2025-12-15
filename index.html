@@ -1094,6 +1094,24 @@
             margin-top: 16px;
         }
 
+        .cta-demo-form .privacy-notice {
+            margin-top: 12px;
+            margin-bottom: -16px;
+            font-size: 13px !important;
+            color: #666;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .cta-demo-form .privacy-notice a {
+            color: var(--lev-blue);
+            text-decoration: underline;
+        }
+
+        .cta-demo-form .privacy-notice a:hover {
+            opacity: 0.8;
+        }
+
         @media (max-width: 500px) {
             .cta-demo-form .form-grid {
                 grid-template-columns: 1fr;
@@ -1805,9 +1823,10 @@
                     <input type="text" name="name" placeholder="Your name" required>
                     <input type="email" name="email" placeholder="Work email" required>
                     <input type="text" name="company" placeholder="Company name" required>
-                    <input type="tel" name="phone" placeholder="Phone number">
+                    <input type="tel" name="phone" placeholder="Phone number" required>
                 </div>
                 <button type="submit" class="btn-primary">Book My Demo</button>
+                <p class="privacy-notice">We will handle your contact details in line with our <a href="https://www.levitate.ai/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.</p>
             </form>
             <p class="social-count">See why 300+ businesses sign up each month</p>
 
