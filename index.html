@@ -2360,41 +2360,12 @@
                 }
 
                 const btn = this.querySelector('button');
-                const originalText = btn.textContent;
                 btn.textContent = 'Generating Report...';
                 btn.disabled = true;
 
-                // Get IP address
-                const ipAddress = await getIpAddress();
-
-                try {
-                    // Submit to Zapier with company data
-                    await fetch(ZAPIER_WEBHOOK, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            form: 'lead_magnet',
-                            email: data.email,
-                            company_name: selectedBusiness.text,
-                            google_place_id: selectedBusiness.placeId,
-                            hutk: getHutk(),
-                            ip_address: ipAddress,
-                            submitted_at: new Date().toISOString(),
-                            ...getPageInfo(),
-                            ...getUrlParams()
-                        })
-                    });
-
-                    // Redirect to getmyscore report page
-                    const reportUrl = `${GETMYSCORE_REPORT_URL}?place_id=${encodeURIComponent(selectedBusiness.placeId)}&auto=true`;
-                    window.location.href = reportUrl;
-
-                } catch (error) {
-                    console.error('Form submission error:', error);
-                    btn.textContent = 'Error - Try Again';
-                    btn.disabled = false;
-                }
+                // Redirect to getmyscore report page (no form submission needed)
+                const reportUrl = `${GETMYSCORE_REPORT_URL}?place_id=${encodeURIComponent(selectedBusiness.placeId)}&auto=true`;
+                window.location.href = reportUrl;
             });
         }
     </script>
