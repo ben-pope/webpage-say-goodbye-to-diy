@@ -1952,7 +1952,8 @@
             <form id="demo-form" class="cta-demo-form">
                 <input type="text" name="department" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
                 <div class="form-grid">
-                    <input type="text" name="name" placeholder="Your name" required>
+                    <input type="text" name="firstName" placeholder="First name" required>
+                    <input type="text" name="lastName" placeholder="Last name" required>
                     <input type="email" name="email" placeholder="Work email" required>
                     <input type="text" name="company" placeholder="Company name" required>
                     <input type="tel" name="phone" placeholder="Phone number">
@@ -2160,10 +2161,8 @@
                 btn.textContent = 'Sending...';
                 btn.disabled = true;
 
-                // Split name into first and last
-                const nameParts = data.name.trim().split(/\s+/);
-                const firstName = nameParts[0] || '';
-                const lastName = nameParts.slice(1).join(' ') || '';
+                const firstName = data.firstName.trim();
+                const lastName = data.lastName.trim();
 
                 // Get IP address
                 const ipAddress = await getIpAddress();
