@@ -23,6 +23,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-3VCZFMJ9QD');
+      gtag('config', 'AW-436138898');
     </script>
 
     <style>
@@ -2187,6 +2188,9 @@
                         })
                     });
 
+                    // Fire Google Ads conversion event
+                    gtag('event', 'conversion', {'send_to': 'AW-436138898/OBVHCMq4hNIbEJLn-88B'});
+
                     btn.textContent = 'Thank You!';
                     btn.style.background = '#43922f';
                     this.reset();
@@ -2434,9 +2438,14 @@
                 btn.textContent = 'Generating Report...';
                 btn.disabled = true;
 
-                // Redirect to getmyscore report page (no form submission needed)
+                // Fire Google Ads conversion event
+                gtag('event', 'conversion', {'send_to': 'AW-436138898/OBVHCMq4hNIbEJLn-88B'});
+
+                // Redirect to getmyscore report page after short delay to ensure tracking fires
                 const reportUrl = `${GETMYSCORE_REPORT_URL}?place_id=${encodeURIComponent(selectedBusiness.placeId)}&auto=true`;
-                window.location.href = reportUrl;
+                setTimeout(() => {
+                    window.location.href = reportUrl;
+                }, 300);
             });
         }
     </script>
