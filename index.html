@@ -258,6 +258,64 @@
             background-color: var(--lev-red);
         }
 
+        /* ========== STICKY HEADER ========== */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--lev-dark-blue);
+            padding: 12px 24px;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-header.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sticky-header-text {
+            color: var(--white);
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .sticky-cta {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .sticky-header-text {
+                display: none;
+            }
+            .sticky-header-content {
+                justify-content: center;
+            }
+        }
+
+        /* ========== MID-PAGE CTA ========== */
+        .mid-page-cta {
+            text-align: center;
+            padding: 48px 24px;
+            background: linear-gradient(135deg, var(--lev-light-blue) 0%, var(--lev-blue) 100%);
+        }
+
+        .mid-page-cta .btn-primary {
+            font-size: 18px;
+            padding: 16px 32px;
+        }
+
         /* ========== DOUBLE BORDER (signature Levitate style) ========== */
         .double-border {
             border: 0.25rem solid var(--lev-med-green);
@@ -1166,14 +1224,75 @@
         }
 
         .cta-section h2 {
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
-        .cta-section p {
+        .cta-section > .container > p {
             font-size: 20px;
             opacity: 0.95;
             max-width: 600px;
             margin: 0 auto 40px;
+        }
+
+        .demo-expectations {
+            max-width: 420px;
+            margin: 0 auto 48px;
+            text-align: left;
+        }
+
+        .demo-expectations-heading {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .demo-expectations ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .demo-expectations li {
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .demo-expectations li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--lev-light-green);
+            font-weight: bold;
+        }
+
+        .cta-section .awards-wrapper {
+            margin-top: 0;
+            margin-bottom: 24px;
+            padding: 20px 32px;
+            border-top: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .awards-group {
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-section .award-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
         }
 
         .cta-testimonial {
@@ -1199,7 +1318,8 @@
 
         .cta-author {
             font-size: 14px;
-            opacity: 0.8;
+            font-weight: 600;
+            opacity: 0.9;
         }
 
         .cta-demo-form {
@@ -1209,6 +1329,15 @@
             padding: 32px 32px 12px;
             border-radius: 16px;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-demo-form .form-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0 0 20px 0;
+            text-align: left;
         }
 
         .cta-demo-form .form-grid {
@@ -1238,6 +1367,22 @@
             color: #999;
         }
 
+        .cta-demo-form .form-group {
+            text-align: left;
+        }
+
+        .cta-demo-form .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .cta-demo-form label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
         .cta-demo-form button {
             width: 100%;
             padding: 18px 32px;
@@ -1245,16 +1390,62 @@
             margin-top: 16px;
         }
 
+        .sms-optin {
+            margin-top: 16px;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .sms-optin-header {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .sms-optin label {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 400;
+            color: #666;
+            line-height: 1.4;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .sms-optin input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin-top: 1px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .sms-optin-note {
+            font-size: 10px;
+            color: #999;
+            margin-top: 6px;
+        }
+
         @media (max-width: 500px) {
             .cta-demo-form .form-grid {
                 grid-template-columns: 1fr;
             }
+
+            .cta-demo-form .form-group.full-width {
+                grid-column: 1;
+            }
         }
 
         .social-count {
-            margin-top: 24px;
+            margin-top: 16px;
             font-size: 16px;
-            opacity: 0.9;
+            font-weight: 600;
+            opacity: 0.95;
         }
 
         /* ========== AWARDS ========== */
@@ -1352,51 +1543,34 @@
         .footer {
             background-color: var(--lev-dark-blue);
             color: var(--white);
-            padding: 64px 5% 32px;
+            padding: 40px 5% 32px;
+            text-align: center;
         }
 
         .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 0 auto 24px;
         }
 
         .footer-logo img {
-            height: 44px;
+            height: 40px;
             width: auto;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 32px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--white);
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
         }
 
         .footer-bottom {
             max-width: 1200px;
-            margin: 48px auto 0;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
             display: flex;
             justify-content: center;
-            gap: 24px;
-            font-size: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 13px;
             opacity: 0.7;
+        }
+
+        .footer-divider {
+            opacity: 0.5;
         }
 
         .footer-bottom a {
@@ -1469,18 +1643,13 @@
                 min-width: 100%;
             }
 
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                justify-content: center;
-            }
-
             .footer-bottom {
                 flex-direction: column;
-                gap: 12px;
+                gap: 8px;
+            }
+
+            .footer-divider {
+                display: none;
             }
 
             .specialists-grid {
@@ -1490,6 +1659,16 @@
     </style>
 </head>
 <body id="top">
+
+    <!-- ========== STICKY HEADER ========== -->
+    <header class="sticky-header" id="sticky-header">
+        <div class="sticky-header-content">
+            <a href="#top" class="sticky-header-logo">
+                <img src="images/levitate-logo-white.png" alt="Levitate - Back to top" height="40">
+            </a>
+            <a href="#demo-form" class="btn-primary sticky-cta">Get a Free Demo</a>
+        </div>
+    </header>
 
     <!-- ========== HERO SECTION ========== -->
     <section class="hero-section">
@@ -1543,7 +1722,7 @@
             </div>
 
             <div class="hero-cta-wrapper">
-                <a href="#demo-form" class="btn-primary triple-shadow hero-cta">Book a Demo</a>
+                <a href="#demo-form" class="btn-primary triple-shadow hero-cta">Get a Free Demo</a>
             </div>
 
             <!-- Testimonials Section -->
@@ -1876,6 +2055,11 @@
         </div>
     </section>
 
+    <!-- ========== MID-PAGE CTA ========== -->
+    <div class="mid-page-cta">
+        <a href="#demo-form" class="btn-primary triple-shadow">Ready to Get Started? Book a Free Demo</a>
+    </div>
+
     <!-- ========== HOW IT WORKS SECTION ========== -->
     <section class="section" style="background-color: var(--lev-dark-blue); color: var(--white);">
         <div class="container">
@@ -1913,7 +2097,7 @@
     <section class="section">
         <div class="container">
             <div class="center">
-                <h2>Is this <span class="emphasis-text blue">for you?</span></h2>
+                <h2>Is Levitate <span class="emphasis-text blue">for you?</span></h2>
             </div>
             <div class="mg-48px"></div>
             <div class="qualifier-grid">
@@ -1939,38 +2123,6 @@
         </div>
     </section>
 
-    <!-- ========== LEAD MAGNET SECTION ========== -->
-    <section class="section" style="background-color: #f8fafc;">
-        <div class="container">
-            <div class="center">
-                <h2>Not ready to talk? <span class="emphasis-text blue">Start here.</span></h2>
-                <p class="big-paragraph">Get your free marketing health check and see where you might be leaving money on the table.</p>
-            </div>
-            <div class="mg-32px"></div>
-            <div class="lead-magnet-card double-border light-blue background-white">
-                <div class="center">
-                    <h2 class="h4-size" style="color: var(--lev-blue);">Free Marketing Health Check</h2>
-                    <p>5-minute assessment that analyzes your online presence and shows exactly what's working and what's not.</p>
-                    <div class="mg-16px"></div>
-                    <form class="email-form" id="health-check-form">
-                        <input type="text" name="department" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
-                        <div class="company-field-wrapper">
-                            <input type="text"
-                                   id="companySearch"
-                                   name="company"
-                                   placeholder="Business name"
-                                   autocomplete="off"
-                                   required
-                                   aria-label="Business name for health check">
-                            <div id="autocomplete-dropdown" class="autocomplete-dropdown"></div>
-                        </div>
-                        <button type="submit" class="btn-primary">Get My Free Report</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ========== FINAL CTA SECTION ========== -->
     <section class="cta-section">
         <!-- CTA Animated Divider -->
@@ -1982,14 +2134,39 @@
             <h2>Ready to say goodbye to <span class="emphasis-text yellow">DIY?</span></h2>
             <p>Join thousands of small businesses who stopped struggling with marketing and started growing.</p>
 
+            <div class="demo-expectations">
+                <p class="demo-expectations-heading">On your personalized demo, you'll see:</p>
+                <ul>
+                    <li>An audit of your current online presence</li>
+                    <li>Your competitors' marketing (and how to beat them)</li>
+                    <li>Keep-in-touch strategies tailored to your industry</li>
+                </ul>
+            </div>
+
             <form id="demo-form" class="cta-demo-form">
+                <h3 class="form-title">Book your free demo</h3>
                 <input type="text" name="department" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <div class="form-grid">
-                    <input type="text" name="firstName" placeholder="First name" required aria-label="First name">
-                    <input type="text" name="lastName" placeholder="Last name" required aria-label="Last name">
-                    <input type="email" name="email" placeholder="Work email" required aria-label="Work email">
-                    <input type="tel" name="phone" placeholder="Phone number" aria-label="Phone number">
-                    <input type="text" name="company" placeholder="Business name" required aria-label="Business name" style="grid-column: 1 / -1;">
+                    <div class="form-group">
+                        <label for="demo-email">Email</label>
+                        <input type="email" id="demo-email" name="email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demo-phone">Phone</label>
+                        <input type="tel" id="demo-phone" name="phone" placeholder="(555) 555-5555" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="demo-company">Business name</label>
+                        <input type="text" id="demo-company" name="company" placeholder="Your business name" required>
+                    </div>
+                </div>
+                <div class="sms-optin">
+                    <p class="sms-optin-header">Get scheduled fast:</p>
+                    <label>
+                        <input type="checkbox" name="sms_optin" value="yes">
+                        I agree to receive automated text messages from Levitate at the phone number provided to help me schedule a demo. Consent is not required. By signing up, I'll receive approximately 4 messages per month.
+                    </label>
+                    <p class="sms-optin-note">Message & data rates may apply. Reply STOP to unsubscribe or HELP for help.</p>
                 </div>
                 <button type="submit" class="btn-primary">Get a Free Demo</button>
                 <p class="privacy-notice">We will handle your contact details in line with our <a href="https://www.levitate.ai/privacy-policy" target="_blank" rel="noopener">privacy policy</a>.</p>
@@ -2000,19 +2177,6 @@
                 <div class="cta-stars">★★★★★</div>
                 <p class="cta-quote">"It's like having your own marketing department for a fraction of the cost."</p>
                 <span class="cta-author">— Kevin I., Financial Services</span>
-            </div>
-
-            <div class="awards-wrapper">
-                <div class="awards-group">
-                    <img src="images/award-inc5000.png" alt="Inc. 5000" class="award-img">
-                    <img src="images/award-workplace.png" alt="USA Today Top Workplace" class="award-img">
-                    <img src="images/award-saas-winner.png" alt="SaaS Awards Winner 2024" class="award-img">
-                    <img src="images/award-frontrunners.svg" alt="Software Advice FrontRunners" class="award-img">
-                    <img src="images/award-capterra-ease.svg" alt="Capterra Best Ease of Use" class="award-img">
-                    <img src="images/award-capterra-shortlist.svg" alt="Capterra Shortlist" class="award-img">
-                    <img src="images/award-g2-leader.svg" alt="G2 Momentum Leader" class="award-img">
-                    <img src="images/award-users-love-us.svg" alt="Users Love Us" class="award-img">
-                </div>
             </div>
         </div>
     </section>
@@ -2025,17 +2189,16 @@
             <a href="#top" class="footer-logo">
                 <img src="images/levitate-logo-white.png" alt="Levitate - Back to top" width="132" height="44">
             </a>
-            <div class="footer-links">
-                <a href="https://www.levitate.ai/features">Features</a>
-                <a href="https://www.levitate.ai/plans">Plans</a>
-                <a href="https://www.levitate.ai/testimonials">Testimonials</a>
-                <a href="https://www.levitate.ai/integrations">Integrations</a>
-                <a href="https://help.levitate.ai/">Support</a>
-            </div>
         </div>
         <div class="footer-bottom">
             <span>© 2025 Real Magic</span>
+            <span class="footer-divider">|</span>
+            <a href="https://maps.app.goo.gl/B8cQ67pajZTJpSFH9" target="_blank" rel="noopener">2409 Crabtree Blvd, Raleigh, NC 27604</a>
+            <span class="footer-divider">|</span>
+            <a href="tel:888-253-7050">888-253-7050</a>
+            <span class="footer-divider">|</span>
             <a href="https://www.levitate.ai/terms-of-service">Terms of Service</a>
+            <span class="footer-divider">|</span>
             <a href="https://www.levitate.ai/privacy-policy">Privacy Policy</a>
         </div>
     </footer>
@@ -2093,6 +2256,22 @@
             }, { threshold: 0.5 });
 
             counters.forEach(counter => observer.observe(counter));
+
+            // Sticky header visibility
+            const stickyHeader = document.getElementById('sticky-header');
+            const heroSection = document.querySelector('.hero-section');
+
+            const headerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        stickyHeader.classList.add('visible');
+                    } else {
+                        stickyHeader.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0, rootMargin: '-100px 0px 0px 0px' });
+
+            headerObserver.observe(heroSection);
 
             // Stats Carousel - show one stat at a time
             const statsBar = document.querySelector('.hero-stats-bar');
