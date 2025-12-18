@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="dns-prefetch" href="https://js.hs-scripts.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preload" href="documents/home-hero-bg.lottie" as="fetch" crossorigin>
+    <link rel="preload" href="documents/divider.lottie" as="fetch" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&family=Sriracha&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&family=Sriracha&display=swap"></noscript>
 
@@ -415,6 +417,8 @@
         .hero-bg-wrapper dotlottie-player {
             width: 1920px;
             flex: none;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .hero-intro {
@@ -444,6 +448,8 @@
             flex: none;
             width: 100%;
             min-width: 1440px;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .hero-headline {
@@ -1700,7 +1706,7 @@
     <section class="hero-section">
         <!-- Animated Background -->
         <div class="hero-bg-wrapper">
-            <dotlottie-player src="documents/home-hero-bg.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
+            <dotlottie-player src="documents/home-hero-bg.lottie" background="transparent" speed="1" loop autoplay renderer="canvas" intermission="0"></dotlottie-player>
         </div>
 
         <div class="hero-intro">
@@ -1793,7 +1799,7 @@
 
         <!-- Animated Divider -->
         <div class="animated-divider">
-            <dotlottie-player src="documents/divider.lottie" background="transparent" speed="1" loop autoplay></dotlottie-player>
+            <dotlottie-player src="documents/divider.lottie" background="transparent" speed="1" loop autoplay renderer="canvas" intermission="0"></dotlottie-player>
         </div>
     </section>
 
