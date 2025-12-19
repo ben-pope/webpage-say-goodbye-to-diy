@@ -1397,17 +1397,19 @@
         }
 
         .demo-form-wrapper {
-            flex: 0 0 auto;
-            width: 420px;
+            flex: 0 0 420px;
+            min-width: 0;
+            max-width: 420px;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1080px) {
             .demo-form-layout {
                 flex-direction: column-reverse;
                 gap: 32px;
             }
 
             .demo-form-wrapper {
+                flex: 0 0 auto;
                 width: 100%;
                 max-width: 500px;
             }
