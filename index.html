@@ -2024,6 +2024,207 @@
                 margin: 0 auto;
             }
         }
+
+        /* ========== DEMO SHOWCASE ========== */
+        .demo-showcase {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        @media (max-width: 991px) {
+            .demo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .demo-card {
+            background: var(--white);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .demo-card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: top;
+            border-bottom: 3px solid var(--lev-light-blue);
+        }
+
+        .demo-card-content {
+            padding: 20px;
+        }
+
+        .demo-card-industry {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--lev-blue);
+            margin-bottom: 8px;
+        }
+
+        .demo-card-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .demo-card-link {
+            font-size: 14px;
+            color: var(--lev-blue);
+            font-weight: 500;
+        }
+
+        .demo-card-link::after {
+            content: ' →';
+        }
+
+        /* ========== PRICING TABLE ========== */
+        .pricing-section {
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        @media (max-width: 991px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .pricing-card {
+            border-radius: 1.5rem;
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            background: var(--white);
+            border: 2px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--lev-blue);
+            box-shadow: 0 0 0 4px rgba(1, 91, 255, 0.15);
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--lev-blue);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pricing-tier {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--lev-dark-blue);
+        }
+
+        .pricing-price {
+            font-family: 'Sora', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--lev-blue);
+            margin-bottom: 4px;
+        }
+
+        .pricing-price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+        }
+
+        .pricing-pages {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--lev-med-green);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-features li.not-included {
+            color: #999;
+        }
+
+        .pricing-features li.not-included::before {
+            content: '—';
+            color: #ccc;
+        }
+
+        .pricing-cta {
+            width: 100%;
+            margin-top: auto;
+        }
     </style>
 </head>
 <body id="top">
@@ -2257,6 +2458,70 @@
             <div class="mg-48px"></div>
             <div class="center">
                 <p class="emphasis-text" style="font-size: 18px; color: var(--lev-blue);">Your website, built by experts, maintained for you. That's it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DEMO SHOWCASE SECTION ========== -->
+    <section class="section demo-showcase">
+        <div class="container wide">
+            <div class="center">
+                <h2>See what we can build <span class="emphasis-text blue">for you</span></h2>
+                <p class="big-paragraph">Explore real demo sites we've created for different industries. Yours will be custom-designed for your brand.</p>
+            </div>
+            <div class="demo-grid">
+                <a href="http://demosite-fin.levitate.ai/" target="_blank" rel="noopener" class="demo-card">
+                    <img src="https://api.microlink.io/?url=http://demosite-fin.levitate.ai/&screenshot=true&meta=false&embed=screenshot.url" alt="Financial Services Demo Site" class="demo-card-image" loading="lazy">
+                    <div class="demo-card-content">
+                        <div class="demo-card-industry">Financial Services</div>
+                        <div class="demo-card-title">Wealth Management Firm</div>
+                        <span class="demo-card-link">View demo site</span>
+                    </div>
+                </a>
+                <a href="http://demosite-ins.levitate.ai/" target="_blank" rel="noopener" class="demo-card">
+                    <img src="https://api.microlink.io/?url=http://demosite-ins.levitate.ai/&screenshot=true&meta=false&embed=screenshot.url" alt="Insurance Demo Site" class="demo-card-image" loading="lazy">
+                    <div class="demo-card-content">
+                        <div class="demo-card-industry">Insurance</div>
+                        <div class="demo-card-title">Insurance Agency</div>
+                        <span class="demo-card-link">View demo site</span>
+                    </div>
+                </a>
+                <a href="http://demosite-lgl.levitate.ai/" target="_blank" rel="noopener" class="demo-card">
+                    <img src="https://api.microlink.io/?url=http://demosite-lgl.levitate.ai/&screenshot=true&meta=false&embed=screenshot.url" alt="Legal Demo Site" class="demo-card-image" loading="lazy">
+                    <div class="demo-card-content">
+                        <div class="demo-card-industry">Legal</div>
+                        <div class="demo-card-title">Law Firm</div>
+                        <span class="demo-card-link">View demo site</span>
+                    </div>
+                </a>
+                <a href="http://demosite-cpa.levitate.ai/" target="_blank" rel="noopener" class="demo-card">
+                    <img src="https://api.microlink.io/?url=http://demosite-cpa.levitate.ai/&screenshot=true&meta=false&embed=screenshot.url" alt="CPA Demo Site" class="demo-card-image" loading="lazy">
+                    <div class="demo-card-content">
+                        <div class="demo-card-industry">Accounting</div>
+                        <div class="demo-card-title">CPA Firm</div>
+                        <span class="demo-card-link">View demo site</span>
+                    </div>
+                </a>
+                <a href="http://demosite-dentist.levitate.ai/" target="_blank" rel="noopener" class="demo-card">
+                    <img src="https://api.microlink.io/?url=http://demosite-dentist.levitate.ai/&screenshot=true&meta=false&embed=screenshot.url" alt="Dental Demo Site" class="demo-card-image" loading="lazy">
+                    <div class="demo-card-content">
+                        <div class="demo-card-industry">Healthcare</div>
+                        <div class="demo-card-title">Dental Practice</div>
+                        <span class="demo-card-link">View demo site</span>
+                    </div>
+                </a>
+                <a href="http://demosite-chiro.levitate.ai/" target="_blank" rel="noopener" class="demo-card">
+                    <img src="https://api.microlink.io/?url=http://demosite-chiro.levitate.ai/&screenshot=true&meta=false&embed=screenshot.url" alt="Chiropractic Demo Site" class="demo-card-image" loading="lazy">
+                    <div class="demo-card-content">
+                        <div class="demo-card-industry">Healthcare</div>
+                        <div class="demo-card-title">Chiropractic Clinic</div>
+                        <span class="demo-card-link">View demo site</span>
+                    </div>
+                </a>
+            </div>
+            <div class="mg-48px"></div>
+            <div class="center">
+                <a href="#demo-form" class="btn-primary">Get a Custom Design for Your Business</a>
             </div>
         </div>
     </section>
@@ -2539,6 +2804,71 @@
                 <a href="#demo-form" class="double-border light-blue" style="display: inline-block; padding: 24px 48px; background: transparent; text-decoration: none; color: var(--white); transition: transform 0.2s, box-shadow 0.2s;">
                     <strong>Most websites launch in 14 days. No upfront cost to start.</strong>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRICING SECTION ========== -->
+    <section class="section pricing-section">
+        <div class="container wide">
+            <div class="center">
+                <h2>Simple, transparent <span class="emphasis-text green">pricing</span></h2>
+                <p class="big-paragraph">Everything included. No surprise fees. Cancel anytime.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Essential Web -->
+                <div class="pricing-card">
+                    <div class="pricing-tier">Essential Web</div>
+                    <div class="pricing-price">$249<span>/mo</span></div>
+                    <div class="pricing-pages">Up to 20 pages</div>
+                    <ul class="pricing-features">
+                        <li>Custom professional design</li>
+                        <li>Mobile-optimized & fast</li>
+                        <li>Lead capture forms</li>
+                        <li>Google Review integration</li>
+                        <li>Monthly performance report</li>
+                        <li>Ongoing maintenance & updates</li>
+                        <li class="not-included">AI Blog integration</li>
+                        <li class="not-included">SEO Premium package</li>
+                    </ul>
+                    <a href="#demo-form" class="btn-primary pricing-cta">Get Started</a>
+                </div>
+
+                <!-- Preferred Web -->
+                <div class="pricing-card featured">
+                    <div class="pricing-tier">Preferred Web</div>
+                    <div class="pricing-price">$299<span>/mo</span></div>
+                    <div class="pricing-pages">Up to 30 pages</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Essential, plus:</li>
+                        <li>AI Blog integration (unlimited posts)</li>
+                        <li>Choose 1 technical feature:</li>
+                        <li style="padding-left: 20px; font-size: 13px;">• Translations to other languages</li>
+                        <li style="padding-left: 20px; font-size: 13px;">• ADA Compliance</li>
+                        <li style="padding-left: 20px; font-size: 13px;">• Financial compliance review</li>
+                    </ul>
+                    <a href="#demo-form" class="btn-primary pricing-cta">Get Started</a>
+                </div>
+
+                <!-- Prestige Web -->
+                <div class="pricing-card">
+                    <div class="pricing-tier">Prestige Web</div>
+                    <div class="pricing-price">$349<span>/mo</span></div>
+                    <div class="pricing-pages">Up to 100 pages</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Preferred, plus:</li>
+                        <li>SEO Premium (keyword audit, location pages, meta optimization)</li>
+                        <li>All technical features included</li>
+                        <li>Content rights (use anywhere, even after cancellation)</li>
+                        <li>GEO (AI search optimization)</li>
+                        <li>Directory listings available</li>
+                    </ul>
+                    <a href="#demo-form" class="btn-primary secondary pricing-cta">Get Started</a>
+                </div>
+            </div>
+            <div class="mg-32px"></div>
+            <div class="center">
+                <p style="font-size: 14px; color: #666; max-width: 600px; margin: 0 auto;">All plans include: Custom design, mobile optimization, lead capture, Google Reviews, monthly reports, and ongoing maintenance. No setup fees. No contracts.</p>
             </div>
         </div>
     </section>
